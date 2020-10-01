@@ -1,0 +1,129 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MIP TOOLKIT</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .invert {
+            background-color: black;
+            color: white;
+        }
+
+        tr.highlighted {
+            background-color: yellow;
+        }
+
+        #stuffToBeCopied {
+            display: none;
+        }
+
+        div#textInputDiv {
+            margin-left: 20px;
+        }
+
+        div.stuffToBeCopiedDiv {
+            margin-bottom: 10px;
+        }
+
+        div#outputDiv {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #parsedDataDiv {
+            display: none;
+            order: 1;
+        }
+
+        input.copyingInput {
+            font-family: "Lucida Console", Monaco, monospace;
+        }
+
+        #stuffToBeCopied {
+            order: 2;
+        }
+
+        span.confirmCopy {
+            visibility: hidden;
+        }
+
+        span.visible {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="center">Your MIP Toolkit</h1>
+
+    <div id="containerDiv">
+
+        <div id="textInputDiv">
+            <h3>Copy MIP Spreadsheet from Excel, and Paste Below:</h3>
+            <textarea rows="10" cols="50" id="textArea"></textarea>
+            <br>
+            <br>
+            <span><b>Select User Initials: </b></span>
+            <select id="userInitialsSelect">
+                <option id="defaultOption" value="">SELECT USER INITIALS</option>
+                <option value="INITIALSGOHERE">INITIALS GO HERE</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" id="importButton">IMPORT</button>
+        </div>
+
+        <div id="outputDiv">
+
+            <div id="parsedDataDiv">
+                <h3 class="center">Click on a row to generate content.</h3>
+                <table id="parsedDataTable">
+                    <tr id="tableHeadingRow">
+                        <th>USPS Tracking Number</th>
+                        <th>UPS Tracking Number</th>
+                        <th>Shipping Number</th>
+                        <th>Recipient's First Name</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="stuffToBeCopied">
+                <div class="stuffToBeCopiedDiv" id="orderNumberDiv">
+                    <span><b>Look Up Customer In MOM By Order Number: </b></span>
+                    <input class="copyingInput" id="orderNumber" size="12">
+                    <span class="confirmCopy">Text Copied to Clipboard.</span>
+                </div>
+                <div class="stuffToBeCopiedDiv" id="instructionsNotesDiv">
+                    <span><b>Copy This Into MOM Instructions/Notes: </b></span>
+                    <input class="copyingInput" id="stringForInstructionsNotes" size="41">
+                    <span class="confirmCopy">Text Copied to Clipboard.</span>
+                </div>
+                <div class="stuffToBeCopiedDiv" id="emailSubjectDiv">
+                    <span><b>Copy This Into E-mail Subject Line: </b></span>
+                    <input class="copyingInput" id="emailSubjectHeader" value="Order Tracking" size="24">
+                    <span class="confirmCopy">Text Copied to Clipboard.</span>
+                </div>
+                <div class="stuffToBeCopiedDiv" id="formLetter">
+                    <h3>Copy This Into E-Mail Body:</h3>
+                    <textarea id="forEmail" class="copyingInput" rows="27" cols="70"></textarea>
+                    <span class="confirmCopy">Text Copied to Clipboard.</span>
+                    <h3>Don't forget to add your signature to the e-mail!</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="mipToolkitLogic.js"></script>
+
+</body>
+
+</html>
